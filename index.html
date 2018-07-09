@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>给我亲爱的宝宝</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default_dev.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				祎祎：</br>
+				<p>我们是通过一场面试认识的 </p>
+
+				<p>“您好我是滴滴的 HR 杨祎” </br>
+				之后，有了我们之间的故事 </p>
+				<p>每天不间断的聊天，总有着说不完的话题 </br>
+				就这样聊着聊着，我喜欢上你啦 </p>
+				<p>每天每天最最期待的事，就是和你聊天 </br>
+				每天睡前的晚安，早上一睁眼马上就看手机有没有你的留言 </br>
+				到再亲密一些，可以每天在你上下班的时候打电话 </br>
+				可以偶尔当你的闹钟，叫你起床 </p>
+				</br>
+				直到，你说好，我们终于终于在一起了 </br>
+				在我们在一起100天的时候，我忽然想到，可以用我擅长的代码来记录 </br>
+				很庆幸，遇到了你 </br>
+				我爱你! </br>
+				</br>
+				<div style="float: right;">璐璐</div>
+			</div>
+			<div id="loveHeart" style="margin-top: 70px;">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						祎祎, 我们在一起已经
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						我爱你<br/>
+						<div class="signature">- 璐璐</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2018, 3, 1);
+		together.setHours(23);
+		together.setMinutes(39);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
